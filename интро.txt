@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Quadratic Equation Course — Grade 8</title>
+  <style>
+    :root{
+      --bg1: #ffffff;
+      --bg2: #f5f7fa;
+      --accent: #7dd3fc;
+      --accent2: #60a5fa;
+      --card: rgba(255,255,255,0.04);
+      --glass: rgba(0,0,0,0.05);
+      --text: #1a1a1a;
+      --muted: #555;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; background: linear-gradient(135deg,var(--bg1),var(--bg2)); color:var(--text); -webkit-font-smoothing:antialiased}
+    .container{max-width:1000px;margin:48px auto;padding:24px}
+
+    .hero{display:grid;grid-template-columns:1fr 420px;gap:28px;align-items:center}
+    .hero-card{padding:28px;border-radius:16px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));box-shadow: 0 6px 30px rgba(2,6,23,0.6);backdrop-filter: blur(6px);border:1px solid rgba(255,255,255,0.04)}
+
+    h1{font-size:34px;margin:0 0 12px 0;line-height:1.05}
+    .sub{color:var(--muted);margin-bottom:18px}
+
+    .badge{display:inline-block;padding:8px 12px;border-radius:999px;background:linear-gradient(90deg,var(--accent),var(--accent2));color:#012; font-weight:700;margin-bottom:12px}
+
+    .sparkle{display:inline-block;height:44px;width:44px;border-radius:10px;background:linear-gradient(180deg,#ffffff12,#ffffff04);display:flex;align-items:center;justify-content:center;margin-right:12px}
+
+    .learnings{margin-top:8px}
+    .learnings ul{padding-left:20px;margin:12px 0;color:var(--muted)}
+    .learnings li{margin:8px 0}
+
+    .cta{display:flex;gap:12px;margin-top:18px}
+    .btn{padding:12px 16px;border-radius:10px;border:0;cursor:pointer;font-weight:600}
+    .btn-primary{background:linear-gradient(90deg,var(--accent),var(--accent2));color:#022}
+    .btn-ghost{background:transparent;color:var(--text);border:1px solid rgba(255,255,255,0.06)}
+
+    .preview{padding:20px;border-radius:12px;background:linear-gradient(180deg, rgba(10,20,34,0.6), rgba(10,20,34,0.5));border:1px solid rgba(255,255,255,0.03)}
+    .preview p{color:var(--muted);margin:8px 0}
+
+    .features{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:18px}
+    .feature{background:var(--glass);padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.03)}
+    .feature h4{margin:0 0 6px 0}
+    .feature p{margin:0;color:var(--muted);font-size:14px}
+
+    footer{margin-top:26px;color:var(--muted);font-size:13px}
+
+    @media (max-width:880px){
+      .hero{grid-template-columns:1fr;}
+      .sparkle{display:none}
+    }
+
+    @keyframes floaty{0%{transform:translateY(0)}50%{transform:translateY(-8px)}100%{transform:translateY(0)}}
+    .sparkle{animation:floaty 4s ease-in-out infinite}
+
+    .shiny{background:linear-gradient(90deg,#ffffff,#7dd3fc,#60a5fa,#ffffff);-webkit-background-clip:text;background-clip:text;color:transparent;background-size:200% 100%;animation:shine 4s linear infinite}
+    @keyframes shine{0%{background-position:0%}100%{background-position:200%}}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="hero">
+      <div class="hero-card">
+        <span class="badge">Grade 8 • Mathematics</span>
+        <div style="display:flex;align-items:flex-start">
+          <div class="sparkle" aria-hidden>
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2l1.9 4.3L18 8l-4.1 1.7L12 14l-1.9-4.3L6 8l4.1-1.7L12 2z" fill="white" opacity="0.9"/></svg>
+          </div>
+          <div>
+            <h1 class="shiny">Quadratic Equation Course</h1>
+            <p class="sub">Master quadratic equations with confidence — from core concepts to advanced problem-solving, explained clearly and visually.</p>
+
+            <div class="learnings">
+              <strong>What you will learn:</strong>
+              <ul>
+                <li>Understand the structure of a quadratic equation and the meaning of its coefficients.</li>
+                <li>Solve quadratic equations using multiple methods: discriminant, square root method, completing the square.</li>
+                <li>Use graphical interpretation: plot and analyze quadratic functions.</li>
+                <li>Apply knowledge to real-life and advanced math problems, including competition tasks.</li>
+                <li>Develop mathematical intuition and problem‑solving confidence.</li>
+              </ul>
+            </div>
+
+            <div class="cta">
+              <button class="btn btn-primary">Start Learning</button>
+              <button class="btn btn-ghost">Lesson Plan</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="features">
+          <div class="feature">
+            <h4>Interactive Practice</h4>
+            <p>Short quizzes, instant feedback, and step-by-step hints.</p>
+          </div>
+          <div class="feature">
+            <h4>Visual Explanations</h4>
+            <p>Graphs and animations to help you truly see the math.</p>
+          </div>
+          <div class="feature">
+            <h4>Competition Prep</h4>
+            <p>Challenging tasks with detailed solution strategies.</p>
+          </div>
+          <div class="feature">
+            <h4>Teacher Support</h4>
+            <p>Clear explanations, examples, and guided practice.</p>
+          </div>
+        </div>
+
+        <footer>Ready to dive deeper? Join the course and turn quadratic equations into your strongest skill.</footer>
+      </div>
+
+      <aside class="preview">
+        <h3>Course Overview</h3>
+        <p>1. Introduction: What quadratic equations are and why they matter.</p>
+        <p>2. Methods of solving: discriminant, formula, completing the square.</p>
+        <p>3. Graphs: connection between the parabola and equation roots.</p>
+        <p>4. Applications: real-life problems and advanced tasks.</p>
+        <p style="margin-top:12px;color:var(--muted);font-size:13px">Perfect for Grade 8 students seeking clarity, skill, and confidence.</p>
+      </aside>
+    </div>
+  </div>
+</body>
+</html>
