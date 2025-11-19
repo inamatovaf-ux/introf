@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Math Snake: Quadratic Equations</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #f0f8ff;
+  }
+  canvas {
+    border: 2px solid #000;
+    background-color: #e0ffe0;
+    display: block;
+    margin: 20px auto;
+  }
+  #score {
+    font-size: 20px;
+    margin-top: 10px;
+  }
+</style>
+</head>
+<body>
+
+<h1>Math Snake: Solve Quadratic Equations!</h1>
+<p>Use arrow keys to move the snake. Eat the correct answer!</p>
+<canvas id="gameCanvas" width="400" height="400"></canvas>
+<div id="score">Score: 0</div>
+
+<script>
+const canvas = document.getElementById('gameCanvas');
+const ctx = canvas.getContext('2d');
+
+const grid = 20;
+let count = 0;
+let score = 0;
+
+let snake = { x: 160, y: 160, dx: grid, dy: 0, cells: [], maxCells: 4 };
+let food = generateFood();
+
+function getRandomInt(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+function generateQuadratic() {
+  // a*x^2 + b*x + c = 0, integer roots
+  let a = getRandomInt(1, 5);
+  let x1 = getRandomInt(0, 10);
+  let x2 = getRandomInt(0, 10);
+  let b = -a * (x1 + x2);
+  let c = a * x1 * x2;
+  return { a, b, c, x1, x2 };
+}
+
+function generateFood() {
+  const equation = generateQuadratic();
+  const answers = [
+    equation.x1,
+    equation.x2,
+    getRandomInt(0, 10),
+    getRandomInt(0, 10)
+  ].sort(() => Math.random() - 0.5); // shuffle
+  const foodObj = {
+    x: getRandomInt(0, canvas.width / grid - 1) * grid,
+    y: getRandomInt(0, canvas.height / grid - 1) * grid,
+    equation,
+    answers
+  };
+  return foodObj;
+}
+
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'ArrowLeft' && snake.dx === 0) { snake.dx = -grid; snake.dy = 0; }
+  if (e.key === 'ArrowUp' && snake.dy === 0) { snake.dx = 0; snake.dy = -grid; }
+  if (e.key === 'ArrowRight' && snake.dx === 0) { snake.dx = grid; snake.dy = 0; }
+  if (e.key === 'ArrowDown' && snake.dy === 0) { snake.dx = 0; snake.dy = grid; }
+});
+
+function gameLoop() {
+  requestAnimationFrame(gameLoop);
+
+  if (++count < 6) return;
+  count = 0;
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  snake.x += snake.dx;
+  snake.y += snake.dy;
+
+  // Wall collision
+  if (snake.x < 0 || snake.x >= canvas.width || snake.y < 0 || snake.y >= canvas.height) {
+    resetGame();
+  }
+
+  snake.cells.unshift({x: snake.x, y: snake.y});
+  if (snake.cells.length > snake.maxCells) snake.cells.pop();
+
+  // Draw food
+  ctx.fillStyle = 'red';
+  ctx.fillRect(food.x, food.y, grid, grid);
+
+  // Draw equation on food
+  ctx.fillStyle = 'black';
+  ctx.font = '12px Arial';
+  ctx.fillText(`${food.equation.a}x² + ${food.equation.b}x + ${food.equation.c} = 0`, food.x-10, food.y-5);
+
+  // Draw snake
+  ctx.fillStyle = 'green';
+  snake.cells.forEach((cell, index) => {
+    ctx.fillRect(cell.x, cell.y, grid-1, grid-1);
+
+    // Eat food
+    if (cell.x === food.x && cell.y === food.y) {
+      const answer = prompt(`Solve: ${food.equation.a}x² + ${food.equation.b}x + ${food.equation.c} = 0\nEnter one root:`);
+      if (parseInt(answer) === food.equation.x1 || parseInt(answer) === food.equation.x2) {
+        snake.maxCells++;
+        score++;
+        document.getElementById('score').textContent = "Score: " + score;
+        food = generateFood();
+      } else {
+        alert("Wrong answer! Game over.");
+        resetGame();
+      }
+    }
+
+    // Check collision with self
+    for (let i = index + 1; i < snake.cells.length; i++) {
+      if (cell.x === snake.cells[i].x && cell.y === snake.cells[i].y) {
+        resetGame();
+      }
+    }
+  });
+}
+
+function resetGame() {
+  snake.x = 160;
+  snake.y = 160;
+  snake.cells = [];
+  snake.maxCells = 4;
+  snake.dx = grid;
+  snake.dy = 0;
+  score = 0;
+  document.getElementById('score').textContent = "Score: " + score;
+  food = generateFood();
+}
+
+requestAnimationFrame(gameLoop);
+</script>
+</body>
+</html>
