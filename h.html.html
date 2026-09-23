@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Педагогикалық менеджменттің мәні мен ерекшеліктері</title>
+<style>
+:root{
+  --bg:#f7f5f2; --card:#ffffff; --text:#1f2430; --muted:#5b6472;
+  --accent:#2f6f5e; --accent2:#c96a3a; --border:#e2ddd4;
+  --ok:#2f8f4e; --bad:#c94a3a;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#181a1f; --card:#22252b; --text:#eef0f3; --muted:#a3abb8;
+    --accent:#5fbfa0; --accent2:#e08b5c; --border:#33373f;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#181a1f; --card:#22252b; --text:#eef0f3; --muted:#a3abb8;
+  --accent:#5fbfa0; --accent2:#e08b5c; --border:#33373f;
+}
+html{scroll-padding-top:env(safe-area-inset-top,0px);}
+*{box-sizing:border-box;}
+body{margin:0; background:var(--bg); color:var(--text); font-family:"Segoe UI",Tahoma,Arial,sans-serif; height:100%; display:flex; flex-direction:column;}
+html,body{height:100%;}
+.wrap{flex:1; display:flex; flex-direction:column; max-width:920px; margin:0 auto; width:100%; padding:16px 20px;}
+.topbar{display:flex; justify-content:space-between; align-items:center; font-size:13px; color:var(--muted); padding:4px 2px 12px;}
+.stage{flex:1; position:relative; overflow:hidden;}
+.slide{position:absolute; inset:0; display:none; flex-direction:column; justify-content:center; background:var(--card); border:1px solid var(--border); border-radius:16px; padding:32px 38px; overflow-y:auto;}
+.slide.active{display:flex;}
+.kicker{color:var(--accent2); font-weight:700; letter-spacing:.04em; font-size:13px; text-transform:uppercase; margin-bottom:8px;}
+h1{font-size:clamp(22px,4vw,30px); margin:0 0 10px; line-height:1.25;}
+h2{font-size:clamp(18px,3.2vw,24px); margin:0 0 12px; color:var(--accent);}
+p{line-height:1.55; margin:0 0 10px; font-size:15.5px;}
+ul,ol{margin:6px 0 10px; padding-left:22px;}
+li{margin-bottom:8px; line-height:1.5;}
+.example{background:color-mix(in srgb, var(--accent) 8%, transparent); border-left:3px solid var(--accent); padding:8px 14px; border-radius:6px; font-size:14.5px; margin:6px 0 10px;}
+.tag{display:inline-block; background:var(--accent); color:#fff; border-radius:999px; padding:4px 12px; font-size:12px; font-weight:600; margin-bottom:14px;}
+.tag.q{background:var(--accent2);}
+.prompt-box{border:2px dashed var(--accent2); border-radius:12px; padding:16px 18px; margin-top:10px; background:color-mix(in srgb, var(--accent2) 8%, transparent);}
+.prompt-box p{margin:0; font-size:16px; font-weight:600;}
+.options{display:flex; flex-direction:column; gap:10px; margin-top:14px;}
+.opt{text-align:left; padding:12px 16px; border-radius:10px; border:1px solid var(--border); background:var(--bg); color:var(--text); font-size:15px; cursor:pointer; transition:.15s;}
+.opt:hover{border-color:var(--accent);}
+.opt.correct{background:color-mix(in srgb, var(--ok) 18%, var(--bg)); border-color:var(--ok);}
+.opt.wrong{background:color-mix(in srgb, var(--bad) 18%, var(--bg)); border-color:var(--bad);}
+.feedback{margin-top:12px; font-size:15px; font-weight:600; min-height:20px;}
+.feedback.ok{color:var(--ok);}
+.feedback.bad{color:var(--bad);}
+.explain{margin-top:6px; font-size:14px; color:var(--muted); display:none;}
+.navbar{display:flex; justify-content:space-between; align-items:center; padding-top:14px; gap:10px;}
+button.nav{background:var(--accent); color:#fff; border:none; border-radius:10px; padding:10px 18px; font-size:15px; cursor:pointer; font-weight:600;}
+button.nav:disabled{opacity:.35; cursor:default;}
+button.nav.secondary{background:transparent; color:var(--accent); border:1px solid var(--accent);}
+.dots{display:flex; gap:5px; flex-wrap:wrap; justify-content:center;}
+.dot{width:7px; height:7px; border-radius:50%; background:var(--border);}
+.dot.on{background:var(--accent);}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar"><span>Педагогикалық менеджмент — 3-тақырып</span><span id="counter">1 / 16</span></div>
+  <div class="stage" id="stage">
+
+    <section class="slide active">
+      <span class="kicker">Тақырып</span>
+      <h1>Басқару қызметінің ерекше түрі ретінде педагогикалық менеджменттің мәні мен ерекшеліктері</h1>
+      <p>Практикалық сабақ №3–4. Бүгін «жүйе» деген не екенін қарапайым тілмен түсінеміз және оны білім беруде басқаруға байланыстырамыз.</p>
+      <div class="prompt-box"><p>👋 Сабақ соңында сендер өздерің сұрақ құрастырып, бір-бірлеріңмен алмасатын ойын ойнайсыздар!</p></div>
+    </section>
+
+    <section class="slide">
+      <span class="tag q">Ойланайық</span>
+      <h2>Жылдам сұрақ аудиторияға</h2>
+      <div class="prompt-box"><p>«Жүйе» дегенде не түсінесіздер? Күнделікті өмірден бір мысал келтіріңіздер.</p></div>
+      <p style="margin-top:14px; color:var(--muted);">1–2 минут беріп, 2–3 студенттен жауап тыңдаңыз.</p>
+    </section>
+
+    <section class="slide">
+      <span class="kicker">1-сұрақ</span>
+      <h2>«Жүйе» деген не?</h2>
+      <p>Қарапайым тілмен айтқанда, <b>жүйе</b> — бір-бірімен байланысты бөлшектердің бірлескен тобы. Бөлшектер бөлек жұмыс істемейді, олар бір-біріне әсер етеді.</p>
+      <div class="example">Мысалы: <b>сағат</b> — тілдер, механизм, батарея бөлек тұрса, уақыт көрсетпейді. Бәрі бірге жұмыс істегенде ғана сағат «жүйе» болады.</div>
+      <p>Мектеп те дәл солай: мұғалім, оқушы, бағдарлама, әкімшілік — бәрі бөлек емес, бір мақсатқа қызмет ететін бір тұтас жүйе.</p>
+    </section>
+
+    <section class="slide">
+      <span class="kicker">1-сұрақ (жалғасы)</span>
+      <h2>Жүйенің 4 негізгі қасиеті</h2>
+      <ul>
+        <li><b>Тұтастық</b> — бөлшектер бөлек емес, бірге жұмыс істейді.<div class="example">Машина доңғалақсыз жүрмейді — бәрі бірге керек.</div></li>
+        <li><b>Құрылымдылық</b> — әр бөлшектің өз орны, өз рөлі бар.<div class="example">Мектепте директор, мұғалім, оқушы — әрқайсысының өз рөлі бар.</div></li>
+        <li><b>Иерархиялық</b> — үлкен жүйенің ішінде кіші жүйелер жасырылған.<div class="example">Мектеп ішінде — сыныптар, сынып ішінде — оқушылар топтары.</div></li>
+        <li><b>Ортамен байланыс</b> — жүйе сыртқы әлемге жауап береді.<div class="example">Жаңа заң шықса, мектеп те өзгереді.</div></li>
+      </ul>
+    </section>
+
+    <section class="slide">
+      <span class="kicker">1-сұрақ (жалғасы)</span>
+      <h2>Жүйе қалай дамиды?</h2>
+      <p>Жүйе бір қалыпта тұрмайды — ол өседі, өзгереді, күрделене түседі. Бұл — жүйенің даму заңы.</p>
+      <div class="example">Мысалы: бұрын мектепте бір ғана пән болса жеткілікті болған, қазір информатика, робототехника сияқты жаңа пәндер қосылды — жүйе күрделеніп келеді.</div>
+      <p>Сонымен қатар жүйе әрдайым <b>тепе-теңдікке</b> ұмтылады — яғни, бөлшектер бір-бірімен үйлесімді жұмыс істеуге тырысады.</p>
+    </section>
+
+    <section class="slide" data-quiz>
+      <span class="tag q">Викторина 1</span>
+      <h2>Жүйенің негізгі қасиеті болып нені атауға БОЛМАЙДЫ?</h2>
+      <div class="options">
+        <button class="opt" data-correct="false">Тұтастық</button>
+        <button class="opt" data-correct="false">Құрылымдылық</button>
+        <button class="opt" data-correct="true">Кездейсоқтық (жүйесіздік)</button>
+        <button class="opt" data-correct="false">Иерархиялық құрылым</button>
+      </div>
+      <div class="feedback"></div>
+      <p class="explain">Жүйенің табиғаты — реттілік пен байланыс. Кездейсоқтық керісінше жүйеге қайшы келеді.</p>
+    </section>
+
+    <section class="slide">
+      <span class="kicker">2-сұрақ</span>
+      <h2>Басқару неге «жүйелі» болу керек?</h2>
+      <p>Егер басқару жүйесіз, бөлек-бөлек болса, жүйенің бөлшектері бір-бірімен үйлеспей қалады.</p>
+      <div class="example">Оркестр мысалы: дирижер болмаса, әр музыкант өз бетінше ойнайды — үйлесімді ән шықпайды. Дирижер — бәрін бір мақсатқа біріктіреді.</div>
+      <p>Мектепте де солай: басқару барлық бөлімдерді (оқу, тәрбие, кадр, ресурс) бір ортақ мақсатқа қарай бағыттауы керек.</p>
+    </section>
+
+    <section class="slide">
+      <span class="kicker">2-сұрақ (жалғасы)</span>
+      <h2>Мақсат қою — басқарудың басы</h2>
+      <p>Мақсат нақты, түсінікті және өлшенетін болуы керек — «жақсы оқыту керек» деген жалпы сөз емес.</p>
+      <p><b>Ең маңыздысы:</b> мақсатты басшы жалғыз өзі, жоғарыдан бұйырып қоймайды. Мақсат — команданың бірге отырып қойған, бірге қабылдаған нәрсесі болуы керек.</p>
+      <div class="example">Мысалы: директор жалғыз «90% үлгерсін» деп жазып қоймайды, ол мұғалімдермен бірге отырып талқылайды — солай болғанда мұғалімдер бұл мақсатты «менің де мақсатым» деп қабылдайды.</div>
+      <p>Мұғалім де сыныппен дәл солай істей алады: мақсатты өзі ғана емес, оқушылармен бірге қояды — сонда балалар да оны «біздің мақсатымыз» деп сезінеді, орындауға ынталы болады.</p>
+    </section>
+
+    <section class="slide">
+      <span class="tag q">Тапсырма</span>
+      <h2>Мақсатты бірге қою</h2>
+      <div class="prompt-box"><p>Шағын топтарға бөлініп, өз сыныбыңа (немесе командаңа) арналған бір мақсат ойлап табыңдар — бірақ мұғалім жалғыз емес, оқушылармен бірге қойғандай етіп жазыңдар.</p></div>
+      <p style="margin-top:14px;">Талқылаңдар:</p>
+      <ul>
+        <li>Мақсатты қалай сұрап, тыңдап, бірге тұжырымдауға болады?</li>
+        <li>Оқушылар/команда мақсатты «өзімдікі» деп сезіну үшін не істеу керек?</li>
+      </ul>
+      <p style="margin-top:6px; color:var(--muted);">Әр топтан бір өкіл жауабын қысқаша айтады.</p>
+    </section>
+
+    <section class="slide">
+      <span class="kicker">3-сұрақ</span>
+      <h2>Жүйелік талдау деген не?</h2>
+      <p>Жүйелік талдау — күрделі нәрсені кішкентай бөлшектерге бөліп, әрқайсысын жеке түсініп, содан кейін олардың қалай байланысатынын көру тәсілі.</p>
+      <div class="example">Дәрігер науқасты емдер алдында бүкіл денені тексереді, бір ағзаны ғана емес — себебі бәрі бір-бірімен байланысты. Мектепті басқарғанда да солай, тек бір мәселені емес, бүкіл жүйені көру керек.</div>
+    </section>
+
+    <section class="slide">
+      <span class="kicker">3-сұрақ (жалғасы)</span>
+      <h2>Білім беру жүйесі — басқару объектісі</h2>
+      <p>Мектеп — өзі де үлкен жүйе: оның ішінде мұғалімдер, оқушылар, бағдарлама, ата-аналар бар. Осы үлкен жүйені де басқару керек.</p>
+      <div class="example">Басқарушы (директор) — <b>субъект</b>, ал мектептің өзі — <b>басқарылатын объект</b>. Олардың арасында үнемі кері байланыс болады: нәтиже көрінеді — шешім қабылданады.</div>
+    </section>
+
+    <section class="slide" data-quiz>
+      <span class="tag q">Викторина 2</span>
+      <h2>Білім беру жүйесі басқару объектісі бола ала ма?</h2>
+      <div class="options">
+        <button class="opt" data-correct="true">Иә, себебі ол көптеген байланысты бөліктерден тұратын күрделі жүйе</button>
+        <button class="opt" data-correct="false">Жоқ, ол тек оқыту үдерісі ғана</button>
+        <button class="opt" data-correct="false">Жоқ, басқару тек экономикада болады</button>
+      </div>
+      <div class="feedback"></div>
+      <p class="explain">Мектеп — оқушылар, мұғалімдер, бағдарлама, ресурстардан тұратын күрделі жүйе, сондықтан ол басқарылады.</p>
+    </section>
+
+    <section class="slide">
+      <span class="kicker">4-сұрақ · заңдылық 1</span>
+      <h2>Мектепішілік менеджменттің жетекші заңдылықтары</h2>
+      <p>Мектепті басқару жалпы кәсіпорынды басқарудан өзгеше — себебі мұнда «өнім» бала, оның тәрбиесі мен білімі.</p>
+      <div class="example">Сондықтан мектеп басқарушысы тек тапсырма бермейді, ол мұғалімдермен бірге педагогикалық үдеріске қатысады, түсінеді, көмектеседі.</div>
+    </section>
+
+    <section class="slide">
+      <span class="kicker">4-сұрақ · заңдылық 2</span>
+      <h2>Тиімділік — байланыс деңгейіне тәуелді</h2>
+      <p>Басқару неғұрлым жақсы жұмыс істесе, соғұрлым басқарушы (директор) мен мұғалімдер арасындағы байланыс тығыз болуы керек.</p>
+      <div class="example">Директор мұғалімдермен жиі сөйлессе, олардың қиындықтарын білсе — шешімдер дәлірек, нәтиже жақсырақ болады. Байланыс әлсіз болса, басқару да әлсірейді.</div>
+    </section>
+
+    <section class="slide">
+      <span class="kicker">4-сұрақ · заңдылық 3</span>
+      <h2>Басқару әдісі — педагогикалық процеске байланысты</h2>
+      <p>Оқу-тәрбие жұмысын қалай басқару керектігі — мектепте сабақ пен тәрбие қалай ұйымдастырылғанына тәуелді.</p>
+      <div class="example">Егер мектепте жоба әдісі (проект) көп қолданылса, басқару да сол әдіске сай, икемді түрде құрылуы керек — қатаң бұйрықпен емес.</div>
+    </section>
+
+    <section class="slide">
+      <span class="tag q">Тапсырма</span>
+      <h2>Quiz-Quiz-Trade (Сұрақ-Жауап-Алмасу)</h2>
+      <ol>
+        <li>Әркім кішкентай қағазға (карточкаға) осы тақырып бойынша <b>1 сұрақ</b> жазады — алдыңғы бетіне.</li>
+        <li>Карточканың <b>артқы бетіне</b> сол сұрақтың жауабын жазады.</li>
+        <li>Барлығы орындарынан тұрады, сыныпта еркін жүреді, бір жұптасын табады.</li>
+        <li>Біреуі сұрағын оқиды → екіншісі жауап береді → карточканы аударып дұрыс-бұрысын тексереді.</li>
+        <li>Рөлдер ауысады: екінші адам өз сұрағын оқиды.</li>
+        <li>Екеуі карточкаларымен <b>алмасады</b>, бір-біріне рахмет айтып, жаңа жұптас іздеуге кетеді.</li>
+        <li>Осылай 5–7 минут бойы қайталайды — мақсат кем дегенде 3–4 адаммен алмасу.</li>
+      </ol>
+      <div class="prompt-box"><p>🔄 Араласыңдар! Сұрақ қарапайым да, қиын да бола алады — негізгісі тақырып бойынша болсын.</p></div>
+    </section>
+
+    <section class="slide">
+      <span class="kicker">Қорытынды</span>
+      <h2>Рефлексия</h2>
+      <p>Әр студент бір сөйлеммен жауап береді:</p>
+      <ul>
+        <li>«Бүгін мен білдім, ...»</li>
+        <li>«Ең қиын болғаны, ...»</li>
+        <li>«Мектеп өмірінде мынаны қолданар едім, ...»</li>
+      </ul>
+    </section>
+
+  </div>
+  <div class="navbar">
+    <button class="nav secondary" id="prevBtn">← Артқа</button>
+    <div class="dots" id="dots"></div>
+    <button class="nav" id="nextBtn">Келесі →</button>
+  </div>
+</div>
+
+<script>
+const slides = Array.from(document.querySelectorAll('.slide'));
+let idx = 0;
+const counter = document.getElementById('counter');
+const dotsWrap = document.getElementById('dots');
+slides.forEach((_,i)=>{
+  const d=document.createElement('div'); d.className='dot'+(i===0?' on':'');
+  dotsWrap.appendChild(d);
+});
+function render(){
+  slides.forEach((s,i)=>s.classList.toggle('active', i===idx));
+  counter.textContent = (idx+1)+' / '+slides.length;
+  Array.from(dotsWrap.children).forEach((d,i)=>d.classList.toggle('on', i===idx));
+  document.getElementById('prevBtn').disabled = idx===0;
+  document.getElementById('nextBtn').disabled = idx===slides.length-1;
+}
+document.getElementById('prevBtn').addEventListener('click',()=>{ if(idx>0){idx--;render();} });
+document.getElementById('nextBtn').addEventListener('click',()=>{ if(idx<slides.length-1){idx++;render();} });
+window.addEventListener('keydown',e=>{
+  if(e.key==='ArrowRight') document.getElementById('nextBtn').click();
+  if(e.key==='ArrowLeft') document.getElementById('prevBtn').click();
+});
+document.querySelectorAll('[data-quiz]').forEach(slide=>{
+  const opts = slide.querySelectorAll('.opt');
+  const fb = slide.querySelector('.feedback');
+  const ex = slide.querySelector('.explain');
+  opts.forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      if(slide.dataset.answered) return;
+      slide.dataset.answered = 'true';
+      const correct = btn.dataset.correct === 'true';
+      opts.forEach(b=>{
+        if(b.dataset.correct==='true') b.classList.add('correct');
+        else if(b===btn) b.classList.add('wrong');
+      });
+      fb.textContent = correct ? 'Дұрыс! 🎉' : 'Дұрыс емес, бірақ жақсы әрекет.';
+      fb.className = 'feedback ' + (correct?'ok':'bad');
+      ex.style.display = 'block';
+    });
+  });
+});
+render();
+</script>
+</body>
+</html>
